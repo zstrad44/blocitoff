@@ -17,9 +17,16 @@
  gem 'coffee-rails', '~> 4.1.0'
  gem 'jquery-rails'
  gem 'turbolinks'
- gem 'bootstrap'
+ gem 'bootstrap', '~> 4.0.0.alpha6'
  gem 'figaro'
  gem 'pry'
+ gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
+ gem 'devise'
+ gem "pundit"
+ 
+ source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+ end
 
  group :development, :test do
    gem 'byebug'
