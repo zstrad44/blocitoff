@@ -1,0 +1,55 @@
+
+<div class="container">
+  <div class="row mb-5">
+    <div class="col">
+      <h3 class="text-primary">What's on the list:</h3>
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <h3 class="mb-3">Today <span class="dateTitle"><%= Time.now.strftime("%a %x") %></span></h3>
+      <div class="card addToDo">
+      <div class="card-block text-center">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-block">
+        This is some text within a card block.
+      </div>
+    </div>
+    </div>
+    <div class="col">
+      <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
+          <div class="card addToDo">
+      <div class="card-block text-center">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-block">
+        This is some text within a card block.
+      </div>
+    </div>
+    </div>
+    <div class="col">
+      <h3 class="mb-3">Upcoming </h3>
+          <div class="card addToDo">
+      <div class="card-block text-center">
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      </div>
+      <div class="line"></div>
+    </div>
+    <div class="card">
+      <div class="card-block">
+        This is some text within a card block.
+      </div>
+    </div>
+    </div>
+  </div>
+</div>

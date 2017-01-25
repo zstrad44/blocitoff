@@ -1,0 +1,91 @@
+ $screen-lg: 1200px;
+ $screen-md: 992px;
+ $screen-sm: 768px;
+ $screen-xs: 480px;
+
+ $gray-darkest:      #222 !default;
+ $gray-darker:       #333 !default;
+ $gray-dark:         #555 !default;
+ $gray-base:         #777 !default;
+ $gray:              #ddd !default;
+ $gray-light:        #eee !default;
+ $gray-lighter:      #f1f1f1 !default;
+ $gray-lightest:     #fafafa !default;
+
+ $primary:         #4285F4 !default;
+ $primary-dark:         #0d47a1 !default;
+ $success-light:         #00C851 !default;
+ $success:         #5cb85c !default;
+ $success-dark:         #449d44 !default;
+ $info:            #33b5e5 !default;
+ $info-dark:            #0099CC !default;
+ $warning:         #ffbb33 !default;
+ $warning-dark:         #FF8800 !default;
+ $danger:          #ff4444 !default;
+ $danger-dark:          #CC0000 !default;
+ 
+ 
+ 
+ 
+ .dateTitle {
+     font-size: .6em;
+     color: $primary;
+ }
+ 
+ .addToDo {
+  transition: all 0.5s ease-in-out;
+  background: #1BC2C2;
+  color: $success;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 2.5em;
+  overflow: hidden;
+  cursor: pointer;
+  line-height: 1em;
+  text-align: center;
+  font-size: 1.5em;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+}
+.addToDo .line {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 0%;
+  height: 0.2em;
+  background: $success-dark;
+  bottom: 0;
+  overflow: hidden;
+  left: -1px;
+  display: block;
+  z-index: 10;
+}
+.addToDo:after {
+  transition: all 0.5s ease-in-out;
+  background: $success;
+  color: #fff;
+  height: 100%;
+  width: 100%;
+  content: "New ToDo";
+  position: absolute;
+  margin: auto;
+  line-height: 2.5;
+  text-align: center;
+  top: -110%;
+  text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  left: -1px;
+}
+.addToDo:hover:after {
+  top: -1px;
+}
+.addToDo:hover .line {
+  width: 100%;
+  background: $success-dark;
+}
+.addToDo:active:after {
+  top: -1px;
+  background: $success;
+  content: "loading..";
+}
