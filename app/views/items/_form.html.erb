@@ -1,0 +1,9 @@
+<%= form_for [current_user, @item] do |f| %>
+  <div class="field form-group">
+    <%= f.label :name, class: "control-label" %><br>
+    <%= f.text_field :name, class: "form-control", placeholder: "What cha gonna do..." %>
+  </div>
+  <div class="pull-right">
+    <%= f.submit "Add ToDo", class:"btn btn-success addItemBtn" %>
+  </div>
+<% end %>

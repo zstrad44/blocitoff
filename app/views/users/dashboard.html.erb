@@ -11,45 +11,48 @@
   <div class="row">
     <div class="col">
       <h3 class="mb-3">Today <span class="dateTitle"><%= Time.now.strftime("%a %x") %></span></h3>
-      <div class="card addToDo">
+      <div class="card addToDo" data-toggle="modal" data-target="#addItemModal">
       <div class="card-block text-center">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </div>
       <div class="line"></div>
     </div>
-    <div class="card">
-      <div class="card-block">
-        This is some text within a card block.
-      </div>
-    </div>
+    <%= render partial: 'items/item' %>
     </div>
     <div class="col">
       <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
-          <div class="card addToDo">
+         <div class="card addToDo" data-toggle="modal" data-target="#addItemModal">
       <div class="card-block text-center">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </div>
       <div class="line"></div>
     </div>
-    <div class="card">
-      <div class="card-block">
-        This is some text within a card block.
-      </div>
-    </div>
+  <%= render partial: 'items/item' %>
     </div>
     <div class="col">
       <h3 class="mb-3">Upcoming </h3>
-          <div class="card addToDo">
+         <div class="card addToDo" data-toggle="modal" data-target="#addItemModal">
       <div class="card-block text-center">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </div>
       <div class="line"></div>
     </div>
-    <div class="card">
-      <div class="card-block">
-        This is some text within a card block.
-      </div>
+    <%= render partial: 'items/item' %>
     </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render partial: 'items/form' %>
+      </div>
+      <div class="modal-footer clearfix">
+        <div class="clearfix" style="float:left;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
