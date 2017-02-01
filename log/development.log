@@ -4688,3 +4688,630 @@ Processing by UsersController#dashboard as HTML
   Rendered items/_form.html.erb (1.0ms)
   Rendered users/dashboard.html.erb within layouts/application (8.9ms)
 Completed 200 OK in 61ms (Views: 60.7ms | ActiveRecord: 0.1ms)
+  [1m[36m (16.0ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (8.6ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (9.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (6.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (6.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (8.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (8.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (7.9ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (8.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (7.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (7.5ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (6.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (6.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for 70.162.48.254 at 2017-02-01 02:20:50 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+Completed 401 Unauthorized in 13ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 70.162.48.254 at 2017-02-01 02:20:50 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (12.7ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (74.1ms)
+Completed 200 OK in 661ms (Views: 643.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/assets/dashboard.self-ca2ea0e1f27ba965c2b3fe9765980e038b870348c9768ae221afe25687617e2d.css?body=1" for 70.162.48.254 at 2017-02-01 02:20:51 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/items.self-f439915ce4482608a6a0fa625426e15263a62424bfd60c2d61f7c7ca1e0939d9.css?body=1" for 70.162.48.254 at 2017-02-01 02:20:51 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 70.162.48.254 at 2017-02-01 02:20:51 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-a88d8582aa7d525c7a31bba223741fcacc2b3815cc3a4cc4394d8aa4ab0c80c6.css?body=1" for 70.162.48.254 at 2017-02-01 02:20:51 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 70.162.48.254 at 2017-02-01 02:20:51 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-bd7ddd393353a8d2480a622e80342adf488fb6006d667e8b42e4c0073393abee.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/alert.self-5a586b490b4c9332249b231956b361b852b128a0d82f7f08549f205bba1bfeb0.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/util.self-5ae5b599fc2afe0f317696c5dfc0b51d6ce2ecb47d0341d1555b2fe971ada496.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tether.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/tether/tether.self-0e1103bd72084f20bc17863434595ea99e999bcf530d80110698608f35ff5620.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/carousel.self-f18afa468f85125228747ec83e00e56a26bbc71295e90a3848af25b258445615.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/collapse.self-94c7455a70c5bb5ad5b3eae0c70388160c238afdea0b48d5345587fd176fb52d.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/button.self-30412f39aaa761313878531076ce8187fe6c017e42111bf2c283fce4a7c850f8.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/dropdown.self-954f8384ac380992dd91b2b176b570b0792365a334efb758774c718d9628a329.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/modal.self-a406636221efb5add01fbaa60c24ac0ae6bc0c57008d8e2503d68f49fbe75ad0.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/scrollspy.self-66781adda319363e67c65edfc73459411bd3948c0f32efddbc9928b810d5abf4.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tab.self-e3abc2817f699a2be95f78a4aff190ef7669d5590adbacd0c08867eb34ed16c6.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/tooltip.self-dd8a9f3fa1f9fc58df30c7ed9a17dfc7303b812d72640899beee03609124b426.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap/popover.self-7d459fac34d4d96fd9d6da8efcd40dee55b66579a24ddcebf0a355c82dcad7e0.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap-sprockets.self-636159b35205da4142a43bc02d2849d77d3ac07a0946211585cde15a9c6ff21f.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/items.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/welcome.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-eb1fd4c08f3b76f058ece61ee5d08df0fcf8542be5a96942903cf268d4fe3e7e.js?body=1" for 70.162.48.254 at 2017-02-01 02:20:52 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/fontawesome-webfont-2adefcbc041e7d18fcf2d417879dc5a09997aa64d675b7a3c4b6ce33da13f3fe.woff2" for 70.162.48.254 at 2017-02-01 02:20:53 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started POST "/users/sign_in" for 70.162.48.254 at 2017-02-01 02:20:55 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h+XrtisbhNd+B/w+4uqDYg7fvdqUaiblNv1xklK+Ji+Cw+yqju6SvhX9OoKk61yvSS+qIZJaYbQCqO8k1tzLEA==", "user"=>{"email"=>"zachstradling@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "zachstradling@gmail.com"]]
+Completed 401 Unauthorized in 23ms (ActiveRecord: 1.0ms)
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"h+XrtisbhNd+B/w+4uqDYg7fvdqUaiblNv1xklK+Ji+Cw+yqju6SvhX9OoKk61yvSS+qIZJaYbQCqO8k1tzLEA==", "user"=>{"email"=>"zachstradling@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendered devise/shared/_links.html.erb (5.6ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 408ms (Views: 145.0ms | ActiveRecord: 0.0ms)
+  [1m[36m (14.6ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (10.6ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (12.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (12.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.4ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (12.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (12.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (12.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.3ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (15.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (8.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36m (16.1ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (7.7ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (9.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (19.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (16.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (10.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (6.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (6.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (10.2ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (8.9ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (9.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.2ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (8.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (7.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (9.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (9.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (6.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36m (10.1ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (7.0ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (6.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (6.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (6.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (8.1ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (6.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (7.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (7.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ines@mohr.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "ines@mohr.biz"], ["encrypted_password", "$2a$11$BbyMbSZazaJm5qswZHz1X.NZZVoMao3Vhw5xjzDWtg0vC6aRoVSPG"], ["created_at", "2017-02-01 02:23:21.109678"], ["updated_at", "2017-02-01 02:23:21.109678"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'nils@champlin.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "nils@champlin.net"], ["encrypted_password", "$2a$11$t.dk8J2v4sgtrMX7VMcfpOGtSJtSbUeJnaZR877WYon2D9NB305nK"], ["created_at", "2017-02-01 02:23:21.268193"], ["updated_at", "2017-02-01 02:23:21.268193"]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kirstin@hodkiewicz.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "kirstin@hodkiewicz.net"], ["encrypted_password", "$2a$11$GXdG8eLPtC0ScqhWdNY5xeSJyCXZpmuqwf07p/ZlJyEjIZTLufr0W"], ["created_at", "2017-02-01 02:23:21.425436"], ["updated_at", "2017-02-01 02:23:21.425436"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jeffry@bartell.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "jeffry@bartell.name"], ["encrypted_password", "$2a$11$lvk1Ah8Ph8OfaG1BsNX4X.O4yFzbj4ZwJlu8z3Fa..zWKXJbEd2ke"], ["created_at", "2017-02-01 02:23:21.582529"], ["updated_at", "2017-02-01 02:23:21.582529"]]
+  [1m[36m (11.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'amanda.boyer@schambergercartwright.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "amanda.boyer@schambergercartwright.biz"], ["encrypted_password", "$2a$11$quJFerLjLVu7It1xvMP.a.y6UIhYA0MhTsJLyOiao4rLVcNnupoCK"], ["created_at", "2017-02-01 02:23:21.741479"], ["updated_at", "2017-02-01 02:23:21.741479"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lambert@greenholt.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "lambert@greenholt.org"], ["encrypted_password", "$2a$11$2tGqAiDKuwLVEGazzPb9Aec/HCq/5Rr0/Yx9LniqBfI4IVAQ4gp72"], ["created_at", "2017-02-01 02:23:21.897432"], ["updated_at", "2017-02-01 02:23:21.897432"]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'desmond@toyjacobson.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "desmond@toyjacobson.com"], ["encrypted_password", "$2a$11$tZ2ULIXWz05IZDROchgPoOY67kAXCE64cbnVvrSBOGGxQoMUGnleu"], ["created_at", "2017-02-01 02:23:22.052820"], ["updated_at", "2017-02-01 02:23:22.052820"]]
+  [1m[36m (9.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'alf@treutelzemlak.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "alf@treutelzemlak.com"], ["encrypted_password", "$2a$11$tFJqkqjak5UtAmasR8fO/uILw/.bjysjzudCv8uYq7Mw3pLjoMEga"], ["created_at", "2017-02-01 02:23:22.210543"], ["updated_at", "2017-02-01 02:23:22.210543"]]
+  [1m[36m (9.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'abdiel_bartoletti@stehr.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "abdiel_bartoletti@stehr.name"], ["encrypted_password", "$2a$11$kaECtDlCBuoFRsyMwnYRseBY3FGfbDaJxwXE1xg6jFPk9oZnB97Ie"], ["created_at", "2017-02-01 02:23:22.369460"], ["updated_at", "2017-02-01 02:23:22.369460"]]
+  [1m[36m (9.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'darian@boyer.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "darian@boyer.org"], ["encrypted_password", "$2a$11$jnPtvMJ2v1Elh/wNegMt7uyq1XjN1MFYNx1jbDTO86axwI0ga4CJG"], ["created_at", "2017-02-01 02:23:22.527231"], ["updated_at", "2017-02-01 02:23:22.527231"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'danny.glover@hudsonkreiger.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "danny.glover@hudsonkreiger.com"], ["encrypted_password", "$2a$11$LFAU3f8xqgUu8EHFlM5.1u7hsKwaQ0d3z4ah4XVsXtKZXSc6.VXzO"], ["created_at", "2017-02-01 02:23:22.682171"], ["updated_at", "2017-02-01 02:23:22.682171"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'buford@ullrich.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "buford@ullrich.info"], ["encrypted_password", "$2a$11$fRYO5bKlD5KZ6p85l9ZQGen9/yx1JS6I/UQqClsoK5AK..TDHwQV."], ["created_at", "2017-02-01 02:23:22.839132"], ["updated_at", "2017-02-01 02:23:22.839132"]]
+  [1m[36m (8.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'letitia@lubowitz.co' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "letitia@lubowitz.co"], ["encrypted_password", "$2a$11$VqyaiNolwdnH4QiTLeuqQehbB25HzTCVVZRJ4TKVAeZEz6tEs4RZS"], ["created_at", "2017-02-01 02:23:22.994527"], ["updated_at", "2017-02-01 02:23:22.994527"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'je@ritchie.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "je@ritchie.biz"], ["encrypted_password", "$2a$11$3.lOMDHoSXmyX7Kan.Lyu.UdN0xGDB2LxkjH3hp8rAEnCQEpKyriC"], ["created_at", "2017-02-01 02:23:23.150873"], ["updated_at", "2017-02-01 02:23:23.150873"]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'rene_ward@schuppe.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "rene_ward@schuppe.name"], ["encrypted_password", "$2a$11$XrJqIvfDjDtnxH/TPhNvXu4VlJ78RPwdx5QKbejxQgIESiX74sEf6"], ["created_at", "2017-02-01 02:23:23.310190"], ["updated_at", "2017-02-01 02:23:23.310190"]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'heidi_wilderman@lesch.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "heidi_wilderman@lesch.biz"], ["encrypted_password", "$2a$11$AGvVZt48PrA2W0FUXJqECeDFmL.xMozA0o0.XGpXfzCMtXWPDr3PS"], ["created_at", "2017-02-01 02:23:23.466670"], ["updated_at", "2017-02-01 02:23:23.466670"]]
+  [1m[36m (9.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'freida@marksbrown.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "freida@marksbrown.org"], ["encrypted_password", "$2a$11$EYt1PIIhFibElTVlmxdDs.qD0PethtbEaxhyv9rI17LUg5tD559SO"], ["created_at", "2017-02-01 02:23:23.623157"], ["updated_at", "2017-02-01 02:23:23.623157"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kathryn@grant.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "kathryn@grant.io"], ["encrypted_password", "$2a$11$A1Qy.CZfFKeHrMxasJIbz.91UW/sWshkiGN/RA6GThlfXfCQf5WKi"], ["created_at", "2017-02-01 02:23:23.778460"], ["updated_at", "2017-02-01 02:23:23.778460"]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'molly.franecki@weimann.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "molly.franecki@weimann.name"], ["encrypted_password", "$2a$11$Fwjo3sgAKF5ou4LzGVaJ6u4toCEJ2Y5CDK3pNoZDY9k9BWF75cGa2"], ["created_at", "2017-02-01 02:23:23.934123"], ["updated_at", "2017-02-01 02:23:23.934123"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'aurelie_dare@klocko.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "aurelie_dare@klocko.co"], ["encrypted_password", "$2a$11$7KCnTYjAHCpHIZO69qBZbuC7SxyP4cNoVenQ3JVeH/Z8EsbV8KtlG"], ["created_at", "2017-02-01 02:23:24.089748"], ["updated_at", "2017-02-01 02:23:24.089748"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'sadie@nolanpadberg.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "sadie@nolanpadberg.net"], ["encrypted_password", "$2a$11$9Veq5uxre0XTUik2w0gyvO91Y9Q6CYtnFkDKY7nLThumFZeUGnBPe"], ["created_at", "2017-02-01 02:23:24.247818"], ["updated_at", "2017-02-01 02:23:24.247818"]]
+  [1m[36m (10.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'golda.crona@denesik.info' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "golda.crona@denesik.info"], ["encrypted_password", "$2a$11$lHDsblUpRQQ2sOd9PjMiROZXmNIf8xHkat8AE.mkx3vrBT2N6pCga"], ["created_at", "2017-02-01 02:23:24.407558"], ["updated_at", "2017-02-01 02:23:24.407558"]]
+  [1m[36m (7.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'kaelyn@okeefe.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "kaelyn@okeefe.com"], ["encrypted_password", "$2a$11$7nxdq5r1UIWxLWPC1d4QrOIskX6ZUnXaafkbWp.Br54UVMZ3b.FYq"], ["created_at", "2017-02-01 02:23:24.562615"], ["updated_at", "2017-02-01 02:23:24.562615"]]
+  [1m[36m (9.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'bruce@price.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "bruce@price.net"], ["encrypted_password", "$2a$11$X/PBQ/WIuVdrPyOSCSZXhuluNkhxwboT.qBf9IO6rvFaNPJtLrGTq"], ["created_at", "2017-02-01 02:23:24.719034"], ["updated_at", "2017-02-01 02:23:24.719034"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'marilyne.lemke@wildermanwiza.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "marilyne.lemke@wildermanwiza.biz"], ["encrypted_password", "$2a$11$TIC/8FuNKyK8ATpHHBs3vuUhJMXZZ9C/4DeUScgDRw4t/hvKrcOtO"], ["created_at", "2017-02-01 02:23:24.875480"], ["updated_at", "2017-02-01 02:23:24.875480"]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'astrid_hammes@shields.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "astrid_hammes@shields.co"], ["encrypted_password", "$2a$11$CmrQg/cV1DOM94xj7g.BueUQV1wjP8hkcXdZF6lFY3DdnzH/NG45u"], ["created_at", "2017-02-01 02:23:25.030085"], ["updated_at", "2017-02-01 02:23:25.030085"]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'lura.wehner@volkman.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "lura.wehner@volkman.net"], ["encrypted_password", "$2a$11$LFHvyOHcBTtLABBN5zEyi..k9RWMsVBn/YhHt.sZvy/sNVllbvz/W"], ["created_at", "2017-02-01 02:23:25.186835"], ["updated_at", "2017-02-01 02:23:25.186835"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ellie@hills.com' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "ellie@hills.com"], ["encrypted_password", "$2a$11$cHbr.t0.WhFH72vkwbfCd.lQFF0EdaWKpn8DwHDl25vdOY0ISP2C6"], ["created_at", "2017-02-01 02:23:25.343987"], ["updated_at", "2017-02-01 02:23:25.343987"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'mia_langworth@harveyraynor.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "mia_langworth@harveyraynor.co"], ["encrypted_password", "$2a$11$PRdcKqjpumI9oOaP/wGaAO.IE1UII2TgV6ITozt6dvvrGL7RXC6Gi"], ["created_at", "2017-02-01 02:23:25.500819"], ["updated_at", "2017-02-01 02:23:25.500819"]]
+  [1m[36m (9.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'montana.smith@kreigerpadberg.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "montana.smith@kreigerpadberg.io"], ["encrypted_password", "$2a$11$RmgxQRxU12B3nMYUx/E1juSl82BE1Jl3/i7ZPrpRIMhTVuCrYkl.u"], ["created_at", "2017-02-01 02:23:25.658184"], ["updated_at", "2017-02-01 02:23:25.658184"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'august_corkery@cummerata.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "august_corkery@cummerata.biz"], ["encrypted_password", "$2a$11$oL0t1SczvJH0Hxk3tsHpq.nU234g4ExOZZGVfdg4z0BzyT6syubgu"], ["created_at", "2017-02-01 02:23:25.815262"], ["updated_at", "2017-02-01 02:23:25.815262"]]
+  [1m[36m (8.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'roel@wolf.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "roel@wolf.org"], ["encrypted_password", "$2a$11$UVyM4QZvETSbFC2bmaaD5ujGXytQZbr9N2AHA8sgo3l2rncFJ64Hq"], ["created_at", "2017-02-01 02:23:25.970695"], ["updated_at", "2017-02-01 02:23:25.970695"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'veda_hettinger@lemkemertz.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "veda_hettinger@lemkemertz.org"], ["encrypted_password", "$2a$11$gPgAkFcr90UC2JOBG1zsyuMyzHmxqbpoN5hgQ861m3I2n/cO/Og3S"], ["created_at", "2017-02-01 02:23:26.126570"], ["updated_at", "2017-02-01 02:23:26.126570"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'wilburn@brekke.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "wilburn@brekke.org"], ["encrypted_password", "$2a$11$jZs5LPf/2LZv0Qb1y5pKGORwSISktyEJSLBxU6gS.fr/gQ3uS7u.m"], ["created_at", "2017-02-01 02:23:26.282198"], ["updated_at", "2017-02-01 02:23:26.282198"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'patrick_hilll@hammesoconnell.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "patrick_hilll@hammesoconnell.biz"], ["encrypted_password", "$2a$11$42UIiO7XoWyFAi2HiKz9sebQzGUIpMVNlaCLXlijeLTADuP0b00.K"], ["created_at", "2017-02-01 02:23:26.439545"], ["updated_at", "2017-02-01 02:23:26.439545"]]
+  [1m[36m (10.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'hermann.zieme@goldner.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "hermann.zieme@goldner.co"], ["encrypted_password", "$2a$11$.ttj2cRCVxE4oG6kJQAL7uxGWKJ/ZJ9ApwcGC9ao.NqnRBjGT3z/C"], ["created_at", "2017-02-01 02:23:26.605876"], ["updated_at", "2017-02-01 02:23:26.605876"]]
+  [1m[36m (18.3ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'reece_parisian@quitzon.co' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "reece_parisian@quitzon.co"], ["encrypted_password", "$2a$11$92UpgVv70kHbhyl0zWMnye/6ZrLvaprzg0tZwWlbIes04ZSMGChue"], ["created_at", "2017-02-01 02:23:26.772023"], ["updated_at", "2017-02-01 02:23:26.772023"]]
+  [1m[36m (7.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'faustino@greenholt.io' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "faustino@greenholt.io"], ["encrypted_password", "$2a$11$7oC8St18uvW7sk6yvqcMluB.QqND4QXvCvt0OGHn312yXhLKxf/Ky"], ["created_at", "2017-02-01 02:23:26.927762"], ["updated_at", "2017-02-01 02:23:26.927762"]]
+  [1m[36m (7.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'melany.luettgen@hayesmayer.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "melany.luettgen@hayesmayer.info"], ["encrypted_password", "$2a$11$AuEyIAKfTUJQKPtmmqkUme6pGefun0fZ7XwM.lYs1Tx6CVlG2DegW"], ["created_at", "2017-02-01 02:23:27.083770"], ["updated_at", "2017-02-01 02:23:27.083770"]]
+  [1m[36m (6.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'keely@stracke.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "keely@stracke.name"], ["encrypted_password", "$2a$11$1.1QfSIxmUXVLGzHp3e9gO.vSPWwcjWkPtZsPI1DyrIGUFXD5V7Ai"], ["created_at", "2017-02-01 02:23:27.239197"], ["updated_at", "2017-02-01 02:23:27.239197"]]
+  [1m[36m (7.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'monte@quitzon.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "monte@quitzon.biz"], ["encrypted_password", "$2a$11$LoD3PcwZoIr8zjP0bmcTXuyIShwU38fkK0F3P/AS7oVc4qTQ.lQJm"], ["created_at", "2017-02-01 02:23:27.395525"], ["updated_at", "2017-02-01 02:23:27.395525"]]
+  [1m[36m (7.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'everardo@crist.org' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "everardo@crist.org"], ["encrypted_password", "$2a$11$/LY3gMNLrkupZs6hYnuWHOs1vOF4PFaRHwRlRNdNgHB0WO48QYnxO"], ["created_at", "2017-02-01 02:23:27.550236"], ["updated_at", "2017-02-01 02:23:27.550236"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'katelynn_ondricka@ohara.io' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "katelynn_ondricka@ohara.io"], ["encrypted_password", "$2a$11$LGGoHhhY5FDeLV.IJXCey.U6o8W6LaY1L6VDs/pyvQubvpD2hiBBm"], ["created_at", "2017-02-01 02:23:27.706196"], ["updated_at", "2017-02-01 02:23:27.706196"]]
+  [1m[36m (8.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'rodrigo.beahan@pollich.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "rodrigo.beahan@pollich.name"], ["encrypted_password", "$2a$11$o869o/MUPcB7uNmmz9ShXOUIQO.y./4CtlrwsxyCmmN8oM2xS1FTe"], ["created_at", "2017-02-01 02:23:27.861448"], ["updated_at", "2017-02-01 02:23:27.861448"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'augustine@schinnerbatz.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "augustine@schinnerbatz.co"], ["encrypted_password", "$2a$11$ndl3CqPcizTWJcwCGjtr..tScJqJM9Oy9aoTt9.oHA5Sn2g/QO5Sm"], ["created_at", "2017-02-01 02:23:28.017297"], ["updated_at", "2017-02-01 02:23:28.017297"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ray.schulist@nader.co' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "ray.schulist@nader.co"], ["encrypted_password", "$2a$11$Vv2KmrcFiMFemyYXSTaMT.gwyzFlLmqIU1EKPcnWm8EjNSfC65SQW"], ["created_at", "2017-02-01 02:23:28.173281"], ["updated_at", "2017-02-01 02:23:28.173281"]]
+  [1m[36m (9.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'reta_schroeder@johnsonkoch.co' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "reta_schroeder@johnsonkoch.co"], ["encrypted_password", "$2a$11$oYg1UND.Di.WRBEiJftmm.QhxmwG99PcVTWbgrYS2jp5MiilYxKtO"], ["created_at", "2017-02-01 02:23:28.331703"], ["updated_at", "2017-02-01 02:23:28.331703"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'jeanne.kemmer@hagenes.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "jeanne.kemmer@hagenes.name"], ["encrypted_password", "$2a$11$SvejWEKXWio1dZUg4N007.GJuBPA5tmMkuKk2CTnMBqcEra2/Y9/2"], ["created_at", "2017-02-01 02:23:28.491454"], ["updated_at", "2017-02-01 02:23:28.491454"]]
+  [1m[36m (8.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'aaron_schaefer@corwinkonopelski.info' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "aaron_schaefer@corwinkonopelski.info"], ["encrypted_password", "$2a$11$6hHtXh0MIHK3lrqcFsZ2Eej6TjNuJNILrRt4qORfFSGuOiQQGt4va"], ["created_at", "2017-02-01 02:23:28.646468"], ["updated_at", "2017-02-01 02:23:28.646468"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'leatha@green.net' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "leatha@green.net"], ["encrypted_password", "$2a$11$.5N4LG/hHqCJvT/cLbXrMebMMRJU0OjTzzWnem60WLBO.rvvTPdUO"], ["created_at", "2017-02-01 02:23:28.802809"], ["updated_at", "2017-02-01 02:23:28.802809"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (11.3ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.2ms)[0m  select sqlite_version(*)
+  [1m[36m (7.1ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (8.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (7.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (8.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (6.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36m (8.9ms)[0m  [1mCREATE TABLE "items" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.1ms)[0m  select sqlite_version(*)
+  [1m[36m (6.7ms)[0m  [1mCREATE  INDEX "index_items_on_user_id" ON "items" ("user_id")[0m
+  [1m[35m (6.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar DEFAULT '' NOT NULL, "encrypted_password" varchar DEFAULT '' NOT NULL, "reset_password_token" varchar, "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar, "last_sign_in_ip" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (7.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35m (0.1ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36m (8.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (7.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar NOT NULL) 
+  [1m[36m (7.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (0.2ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36m (7.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20170126034219')[0m
+  [1m[35m (6.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20170121013606')
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'carrie@wisokyparker.name' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "carrie@wisokyparker.name"], ["encrypted_password", "$2a$11$OaA2gB7Hc6hU5WCnu0B3s.5dU4mnyiWp3jaoksoF9pNNUwlHhRsNq"], ["created_at", "2017-02-01 02:28:11.140942"], ["updated_at", "2017-02-01 02:28:11.140942"]]
+  [1m[36m (9.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'wellington.hayes@jenkins.co' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "wellington.hayes@jenkins.co"], ["encrypted_password", "$2a$11$YYhegAjHorgUL82v98KSU.CmVCngFHre3EVzeyvy.jFZ9yDB0.R/O"], ["created_at", "2017-02-01 02:28:11.302033"], ["updated_at", "2017-02-01 02:28:11.302033"]]
+  [1m[36m (8.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'caterina_macejkovic@johns.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "caterina_macejkovic@johns.name"], ["encrypted_password", "$2a$11$AufETl4/I/pIcchZraXB/uMEPdIaoxmmikJOmPxSIoTsbAq9FH50i"], ["created_at", "2017-02-01 02:28:11.462298"], ["updated_at", "2017-02-01 02:28:11.462298"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'anabelle_halvorson@schmidtohara.biz' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "anabelle_halvorson@schmidtohara.biz"], ["encrypted_password", "$2a$11$zSJgjhXDa29xkvffHZuuH.YFgZ2GRRrEGds8mXOCt7AWQtWy.3172"], ["created_at", "2017-02-01 02:28:11.621503"], ["updated_at", "2017-02-01 02:28:11.621503"]]
+  [1m[36m (9.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'anastacio@torp.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "anastacio@torp.com"], ["encrypted_password", "$2a$11$SYiFq7MH3afSa8qSCsHdfOrkNj61fzbKbp6saNjP9jh4Wp.23V7lS"], ["created_at", "2017-02-01 02:28:11.781866"], ["updated_at", "2017-02-01 02:28:11.781866"]]
+  [1m[36m (8.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'cordelia_pfeffer@littelquitzon.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "cordelia_pfeffer@littelquitzon.com"], ["encrypted_password", "$2a$11$07PaT2R5Nv9ZhYiZJWLYZ.JopKSgh2IcM/R.8Er2C8e/opoi3THBm"], ["created_at", "2017-02-01 02:28:11.939904"], ["updated_at", "2017-02-01 02:28:11.939904"]]
+  [1m[36m (6.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'ramon_beer@hegmann.name' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "ramon_beer@hegmann.name"], ["encrypted_password", "$2a$11$F72MJu6NNa0v0eg8WAtFFuMh7fPaWNdct8LdkogveFIF9xogJ6DnW"], ["created_at", "2017-02-01 02:28:12.096908"], ["updated_at", "2017-02-01 02:28:12.096908"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'maybelle.dach@brakus.net' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "maybelle.dach@brakus.net"], ["encrypted_password", "$2a$11$Uo233C4vMa8Bxs1Rjo0KzO2JdW6xxco5nxnL.BHIixPSsubkERmoG"], ["created_at", "2017-02-01 02:28:12.256417"], ["updated_at", "2017-02-01 02:28:12.256417"]]
+  [1m[36m (10.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'minerva_bahringer@marquardthayes.com' LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "minerva_bahringer@marquardthayes.com"], ["encrypted_password", "$2a$11$6vqZx10SetX9WeHojIwyx.4SPvx1s2LqXuzjoopum0k84k0dAutqm"], ["created_at", "2017-02-01 02:28:12.418518"], ["updated_at", "2017-02-01 02:28:12.418518"]]
+  [1m[36m (8.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'dortha@fisher.biz' LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["email", "dortha@fisher.biz"], ["encrypted_password", "$2a$11$jWhP1Znm6WNGHH0rybgxxuwDWPdX/kk5D5WQte5/AX8xjscyXuRTe"], ["created_at", "2017-02-01 02:28:12.576388"], ["updated_at", "2017-02-01 02:28:12.576388"]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Jordi Bechtelar"], ["user_id", 1], ["created_at", "2017-02-01 02:28:12.596314"], ["updated_at", "2017-02-01 02:28:12.596314"]]
+  [1m[36m (7.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Dedric Rau"], ["user_id", 5], ["created_at", "2017-02-01 02:28:12.605621"], ["updated_at", "2017-02-01 02:28:12.605621"]]
+  [1m[35m (7.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Baron Schoen"], ["user_id", 5], ["created_at", "2017-02-01 02:28:12.615579"], ["updated_at", "2017-02-01 02:28:12.615579"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "River Becker"], ["user_id", 9], ["created_at", "2017-02-01 02:28:12.624734"], ["updated_at", "2017-02-01 02:28:12.624734"]]
+  [1m[35m (9.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Vernie Corkery"], ["user_id", 7], ["created_at", "2017-02-01 02:28:12.635960"], ["updated_at", "2017-02-01 02:28:12.635960"]]
+  [1m[36m (6.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Sharon Turner"], ["user_id", 2], ["created_at", "2017-02-01 02:28:12.645085"], ["updated_at", "2017-02-01 02:28:12.645085"]]
+  [1m[35m (8.2ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Elroy Denesik Sr."], ["user_id", 5], ["created_at", "2017-02-01 02:28:12.655638"], ["updated_at", "2017-02-01 02:28:12.655638"]]
+  [1m[36m (6.4ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Immanuel Wisoky"], ["user_id", 5], ["created_at", "2017-02-01 02:28:12.664138"], ["updated_at", "2017-02-01 02:28:12.664138"]]
+  [1m[35m (7.3ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Toney Runte V"], ["user_id", 2], ["created_at", "2017-02-01 02:28:12.674072"], ["updated_at", "2017-02-01 02:28:12.674072"]]
+  [1m[36m (8.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Mandy Larkin"], ["user_id", 7], ["created_at", "2017-02-01 02:28:12.684140"], ["updated_at", "2017-02-01 02:28:12.684140"]]
+  [1m[35m (6.2ms)[0m  commit transaction
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users"  ORDER BY "users"."id" ASC LIMIT 1[0m
+
+
+Started GET "/users/sign_up" for 70.162.48.254 at 2017-02-01 02:28:54 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered devise/shared/_links.html.erb (3.5ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 71ms (Views: 69.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 70.162.48.254 at 2017-02-01 02:29:02 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ozDC4PXz5RrKyO7OHnUA6OJdD3TzwESr7Oh403Se+Y2mFsX8UAbzc6EyKHJYdN8lpa0Yj/XwA/rYveZl8PwUsg==", "user"=>{"email"=>"zachstradling@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.2ms)[0m  SELECT  1 AS one FROM "users" WHERE "users"."email" = 'zachstradling@gmail.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["email", "zachstradling@gmail.com"], ["encrypted_password", "$2a$11$5d3sktgXh67vbuCeZZz5vONLy0SNFSTB2L/SR2lH4Kqh3YfDCk69K"], ["created_at", "2017-02-01 02:29:02.369228"], ["updated_at", "2017-02-01 02:29:02.369228"]]
+  [1m[35m (9.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2017-02-01 02:29:02.381515"], ["current_sign_in_at", "2017-02-01 02:29:02.381515"], ["last_sign_in_ip", "70.162.48.254"], ["current_sign_in_ip", "70.162.48.254"], ["sign_in_count", 1], ["updated_at", "2017-02-01 02:29:02.382395"], ["id", 1]]
+  [1m[36m (6.5ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-zstrad44.c9users.io/
+Completed 302 Found in 186ms (ActiveRecord: 17.4ms)
+
+
+Started GET "/" for 70.162.48.254 at 2017-02-01 02:29:02 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Processing by UsersController#dashboard as HTML
+  [1m[36mItem Load (0.3ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered items/_item.html.erb (19.3ms)
+  Rendered items/_item.html.erb (0.0ms)
+  Rendered items/_item.html.erb (0.0ms)
+  Rendered items/_form.html.erb (2.0ms)
+  Rendered users/dashboard.html.erb within layouts/application (24.6ms)
+Completed 200 OK in 84ms (Views: 76.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/users/1/items" for 70.162.48.254 at 2017-02-01 02:29:34 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ItemsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"V1MefCyU+mGvf+Kpj44EtUItsfN0NRvyYVF7Idc22TtSdRlgiWHsCMSFJBXJj9t4Bd2mCHIFXKNVBOWXU1Q0BA==", "item"=>{"name"=>"Get some code.."}, "commit"=>"Add ToDo", "user_id"=>"1"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "items" ("name", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "Get some code.."], ["user_id", 1], ["created_at", "2017-02-01 02:29:34.508529"], ["updated_at", "2017-02-01 02:29:34.508529"]]
+  [1m[36m (9.3ms)[0m  [1mcommit transaction[0m
+Redirected to https://blocitoff-zstrad44.c9users.io/
+Completed 302 Found in 19ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/" for 70.162.48.254 at 2017-02-01 02:29:34 +0000
+Cannot render console from 70.162.48.254! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Processing by UsersController#dashboard as HTML
+  [1m[36mItem Load (0.1ms)[0m  [1mSELECT "items".* FROM "items" WHERE "items"."user_id" = ?[0m  [["user_id", 1]]
+  Rendered items/_item.html.erb (1.3ms)
+  Rendered items/_item.html.erb (0.2ms)
+  Rendered items/_item.html.erb (0.1ms)
+  Rendered items/_form.html.erb (1.7ms)
+  Rendered users/dashboard.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 57ms (Views: 56.5ms | ActiveRecord: 0.1ms)
