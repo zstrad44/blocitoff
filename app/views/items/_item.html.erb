@@ -1,8 +1,6 @@
-<% current_user.items.each do |item| %>
-    <div class="card itemCard" id="<%= item.id %>">
+
+    <div class="card itemCard" id="<% item.id %>">
       <div class="card-block">
-        <h4 class="card-title"><%= item.name %></h4>
-        <h6 class="card-subtitle mb-2 text-muted">Created <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
+        <h4 class="card-title"><% item.name %></h4>
       </div>
     </div>
-<% end %>

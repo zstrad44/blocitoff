@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
     
   resources :users do
-    resources :items, only: :create
+    resources :items, only: [:create, :show]
   end
 
   get 'welcome/about'

@@ -17,7 +17,9 @@
       </div>
       <div class="line"></div>
     </div>
-    <%= render partial: 'items/item' %>
+      <% current_user.items_upcoming.each do |item| %>
+        <%= render partial: "items/item", local: {item: item} %>
+      <% end %>
     </div>
     <div class="col">
       <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
@@ -27,7 +29,7 @@
       </div>
       <div class="line"></div>
     </div>
-  <%= render partial: 'items/item' %>
+  
     </div>
     <div class="col">
       <h3 class="mb-3">Upcoming </h3>
@@ -37,7 +39,7 @@
       </div>
       <div class="line"></div>
     </div>
-    <%= render partial: 'items/item' %>
+
     </div>
   </div>
 </div>
