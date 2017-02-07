@@ -1,8 +1,9 @@
-<% current_user.items.each do |item| %>
-    <div class="card itemCard" id="<%= item.id %>">
-      <div class="card-block">
-        <h4 class="card-title"><%= item.name %></h4>
-        <h6 class="card-subtitle mb-2 text-muted">Created <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
-      </div>
-    </div>
-<% end %>
+<div class="card itemCard" id="<%= item.id %>">
+  <div class="card-block">
+    <h4 class="card-title"><%= item.name %></h4>
+    <h6 class="card-subtitle mb-2 text-muted">Created <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
+    <h6>Must complete in: <%= distance_of_time_in_words(item.created_at + 7.days, Time.now) %></h6>
+     <%= link_to "", [current_user, item], method: :delete, class: 'btn btn-primary fa fa-check', data: {confirm: 'Are you sure you want to mark this ToDo as COMPLETE?'}, remote: :true %>
+  </div>
+</div>
+ 

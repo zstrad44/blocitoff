@@ -12,7 +12,7 @@
 
 .itemCard .card-block .card-subtitle {
     font-size: .8em;
-}
+} 
 #addItemModal label {
     display: none;
 }
@@ -20,7 +20,17 @@
 #addItemModal input {
     font-size: 1.7em;
 }
-
+.itemCard .card-block  a.btn{
+    position: absolute;
+    right: 5px;
+    top: 55px;
+    padding: 5px 10px;
+    background-color: #ddd;
+    border-color: #dadada;
+}
+.itemCard .card-block  a.btn:hover {
+    background-color: #398ADE;
+}
 #addItemModal .modal-footer {
     padding: 5px 10px;
     background-color: #696969;

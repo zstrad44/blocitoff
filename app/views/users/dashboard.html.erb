@@ -3,6 +3,11 @@
   <div class="row mb-5">
     <div class="col">
       <h3 class="text-primary">What's on the list:</h3>
+      <% if current_user.items_expiring_today.count == 0 %>
+        <h4 class="text-success">Items set to expire today: <%= current_user.items_expiring_today.count %></h4>
+      <% else %>
+        <h4 class="text-danger">Items set to expire today: <%= current_user.items_expiring_today.count %></h4>
+      <% end %>
     </div>
     <div class="col">
       
@@ -17,7 +22,9 @@
       </div>
       <div class="line"></div>
     </div>
-    <%= render partial: 'items/item' %>
+      <% current_user.items_expiring_today.each do |item| %>
+        <%= render partial: "items/item", locals: { item: item } %>
+      <% end %>
     </div>
     <div class="col">
       <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
@@ -27,7 +34,9 @@
       </div>
       <div class="line"></div>
     </div>
-  <%= render partial: 'items/item' %>
+      <% current_user.items_expiring_tomorrow.each do |item| %>
+        <%= render partial: "items/item", locals: { item: item } %>
+      <% end %>
     </div>
     <div class="col">
       <h3 class="mb-3">Upcoming </h3>
@@ -37,7 +46,9 @@
       </div>
       <div class="line"></div>
     </div>
-    <%= render partial: 'items/item' %>
+      <% current_user.items_upcoming.each do |item| %>
+        <%= render partial: "items/item", locals: { item: item } %>
+      <% end %>
     </div>
   </div>
 </div>

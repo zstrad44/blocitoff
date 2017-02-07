@@ -15,4 +15,18 @@ class ItemsController < ApplicationController
     end
    
   end
+  
+  def destroy
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      redirect_to root_path
+      flash[:notice] = "Success! ToDo was marked as COMPLETE and has been DESTROYED!"
+      
+    else
+      flash[:alert] = "Something wen't terribly wrong! Try again if you want.."
+      redirect_to root_path
+    end
+  end
+  
 end
