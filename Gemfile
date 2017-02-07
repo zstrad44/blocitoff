@@ -23,6 +23,7 @@
  gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.1'
  gem 'devise'
  gem "pundit"
+ gem 'whenever', :require => false
  
  source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'

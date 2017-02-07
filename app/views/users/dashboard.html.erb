@@ -25,7 +25,7 @@
       <% current_user.items_expiring_today.each do |item| %>
         <%= render partial: "items/item", locals: { item: item } %>
       <% end %>
-    </div>
+    </div> 
     <div class="col">
       <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
          <div class="card addToDo" data-toggle="modal" data-target="#addItemModal">
