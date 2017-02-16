@@ -1,9 +1,19 @@
 <div class="card itemCard" id="<%= item.id %>">
   <div class="card-block">
     <h4 class="card-title"><%= item.name %></h4>
-    <h6 class="card-subtitle mb-2 text-muted">Created <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
-    <h6>Must complete in: <%= distance_of_time_in_words(item.created_at + 7.days, Time.now) %></h6>
+    <h6 class="card-subtitle mb-2 text-muted">Created: <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
+    <% if distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') >= "3" %>
+        <h6>This Task will expire in: <span class="badge badge-pill badge-primary"> <%= days_left(item) %></span></h6>
+    <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') == "2" %>
+        <h6>This Task will expire in: <span class="badge badge-pill badge-warning"> <%= days_left(item) %></span></h6>
+    <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' day', '') == "1" %>
+        <h6>This Task will expire in: <span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>
+    <% else %>
+        <h6>This Task will expire in: <span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>    
+    <%end%>
+    
      <%= link_to "", [current_user, item], method: :delete, class: 'btn btn-primary fa fa-check', data: {confirm: 'Are you sure you want to mark this ToDo as COMPLETE?'}, remote: :true %>
+     <%#= link_to "", [current_user, item], method: :edit, class: 'btn btn-primary fa pencil', remote: :true %>
   </div>
 </div>
- 
+  

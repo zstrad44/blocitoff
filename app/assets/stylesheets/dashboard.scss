@@ -25,8 +25,112 @@
  $danger-dark:          #CC0000 !default;
  
  
+ // ********* DASHBOARD START********* //
+    
+    .dashboard {
+        height: 100%;
+        // padding: 0 !important;
+    }
+    .dashboard .wrapper {
+        padding: 0;
+        margin:0;
+    }
  
  
+ // SIDEBAR STYLES **************
+  .dashboard .sidebar {
+    padding: 10px 0px;  
+    height: 100%;
+    min-height: 100%;
+    border-right: 1px solid #ddd;
+    background-color: #008DFF;
+    position: fixed;
+    top:64px;
+    left:0;
+    bottom:0;
+    z-index:1000;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.dashboard .sidebar .sidebar-heading {
+    width:100%;
+    margin: -10px 0 15px 0;
+    padding: 10px 20px;
+    background-color: #505050;
+    
+}
+ .dashboard .sidebar .sidebar-heading .profile-image {
+    width:30%;
+    float: left;
+    
+}
+.dashboard .sidebar .sidebar-heading .profile-image  .fa{
+    font-size:3em;
+    color: #fff;
+}
+ .dashboard .sidebar .sidebar-heading .profile-info {
+    width:70%;
+    float: left;
+}
+ .dashboard .sidebar .sidebar-heading .profile-info p{
+    font-size: 1em;
+    color: #fff;
+}
+.dashboard .sidebar .list-group {
+    margin:0 !important;
+}
+  .dashboard .sidebar .list-group-item {
+      border-color:rgba(199, 199, 199, .4);
+      border-left:none;
+      border-top:none;
+      border-bottom:1px solid rgba(199, 199, 199, .4);
+      border-radius:0px;
+      background-color:transparent;
+      color: #fff;
+      font-size: 1.2em;
+      transition: .2s ease-out;
+
+  }
+  .dashboard .sidebar .list-group-item:hover {
+      background-color: #505050;
+      transition: .2s ease-in;
+  }
+  .dashboard .sidebar .list-group-item.active {
+      background-color: #505050;
+  }
+ .dashboard .sidebar .list-group-item:first-child {
+    border-top: 1px solid rgba(199, 199, 199, .4);
+  }
+
+  .dashboard .sidebar h3 {
+      color: #fff;
+      padding: 5px;
+    //   border-bottom:1px solid #ddd;
+  }
+.dashboard .sidebar .lower-links {
+    margin-top: 30%;
+}
+ 
+ .todayBox, .tomorrowBox, .upcomingBox {
+     padding: 20px 5px;
+    //  background-color: #fff;
+    //  margin: 0 5px;
+ }
+ .box {
+    background-color: white;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 3px;
+    border: 1px solid #dbd8d8;
+    border-width: 1px 1px 2px 1px;
+    box-shadow: 0 1px 0 #e7e7e7;
+    padding:10px;
+ }
+ .box h3 {
+     color: #808080;
+ }
  .dateTitle {
      font-size: .6em;
      color: $primary;
@@ -89,3 +193,19 @@
   background: $success;
   content: "loading..";
 }
+
+     .dashboard .main-content {
+        height: 100%;
+        min-height: 100%;
+        padding: 10px;
+    }
+    
+    
+    @media(min-width:1000px) {
+        .dashboard .main-content {
+        padding: 20px 60px 0 60px;
+    }
+    .itemsRow {
+        margin-top:40px;
+    }
+    }
