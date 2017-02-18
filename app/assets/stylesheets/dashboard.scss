@@ -12,7 +12,7 @@
  $gray-lighter:      #f1f1f1 !default;
  $gray-lightest:     #fafafa !default;
 
- $primary:         #4285F4 !default;
+ $primary:         #428bca !default;
  $primary-dark:         #0d47a1 !default;
  $success-light:         #00C851 !default;
  $success:         #5cb85c !default;
@@ -24,9 +24,7 @@
  $danger:          #ff4444 !default;
  $danger-dark:          #CC0000 !default;
  
- 
  // ********* DASHBOARD START********* //
-    
     .dashboard {
         height: 100%;
         // padding: 0 !important;
@@ -35,36 +33,44 @@
         padding: 0;
         margin:0;
     }
- 
- 
  // SIDEBAR STYLES **************
   .dashboard .sidebar {
     padding: 10px 0px;  
     height: 100%;
     min-height: 100%;
+    width:90px;
     border-right: 1px solid #ddd;
-    background-color: #008DFF;
+    background-color: #454545;
     position: fixed;
     top:64px;
     left:0;
     bottom:0;
-    z-index:1000;
+    z-index:+2000;
     display: block;
     overflow-x: hidden;
     overflow-y: auto;
 }
+.dashboard .sidebar .divider {
+    height:20px;
+}
 
 .dashboard .sidebar .sidebar-heading {
-    width:100%;
-    margin: -10px 0 15px 0;
-    padding: 10px 20px;
-    background-color: #505050;
-    
+    width: 100%;
+    margin: -10px 0 0px 0;
+    padding: 10px 10px;
+    background-color: #4B98DA;
+    border: 1px solid #ccc;
+    border-width: 0 0 3px 0;
 }
  .dashboard .sidebar .sidebar-heading .profile-image {
-    width:30%;
+    width:100%;
     float: left;
-    
+    text-align:center;
+}
+.dashboard .sidebar .sidebar-heading .profile-image img {
+        box-shadow: 0 0 10px #707070;
+        height:50px;
+        width:auto;
 }
 .dashboard .sidebar .sidebar-heading .profile-image  .fa{
     font-size:3em;
@@ -85,13 +91,20 @@
       border-color:rgba(199, 199, 199, .4);
       border-left:none;
       border-top:none;
-      border-bottom:1px solid rgba(199, 199, 199, .4);
+      border-bottom:2px solid rgba(199, 199, 199, .4);
       border-radius:0px;
-      background-color:transparent;
+      background-color:#606060;
       color: #fff;
-      font-size: 1.2em;
+      font-size: 1em;
       transition: .2s ease-out;
-
+      justify-content: center;
+  }
+  .dashboard .sidebar .list-group-item span {
+      font-size:.65em;
+      margin: 1px;
+  }
+  .dashboard .sidebar .list-group-item .fa {
+      font-size:1.4em;
   }
   .dashboard .sidebar .list-group-item:hover {
       background-color: #505050;
@@ -109,9 +122,11 @@
       padding: 5px;
     //   border-bottom:1px solid #ddd;
   }
-.dashboard .sidebar .lower-links {
-    margin-top: 30%;
-}
+ .dashboard .sidebar .lower-links {
+    position: absolute;
+    bottom:80px;
+    left:0;
+ }
  
  .todayBox, .tomorrowBox, .upcomingBox {
      padding: 20px 5px;
@@ -122,11 +137,13 @@
     background-color: white;
     margin-top: 12px;
     margin-bottom: 12px;
-    border-radius: 3px;
+    border-radius:0 !important;
     border: 1px solid #dbd8d8;
-    border-width: 1px 1px 2px 1px;
-    box-shadow: 0 1px 0 #e7e7e7;
+    border-width: 1px 1px 1px 1px;
+    // box-shadow: 0 2px 5px #ebebeb;
+    box-shadow: inset 0 0 5px #bcbcbc;
     padding:10px;
+    
  }
  .box h3 {
      color: #808080;
@@ -135,11 +152,11 @@
      font-size: .6em;
      color: $primary;
  }
- 
  .addToDo {
   transition: all 0.5s ease-in-out;
-  background: #1BC2C2;
+  background: transparent !important;
   color: $success;
+  border:2px solid $success !important;
   margin: auto;
   position: absolute;
   top: 0;
@@ -153,6 +170,15 @@
   text-align: center;
   font-size: 1.5em;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0 0 5px #bcbcbc;
+  border-radius:0 !important;
+  margin-top:15px;
+}
+@media(min-width:1000px) {
+    .addToDo {
+        top:80px;
+        margin-top:0;
+    }
 }
 .addToDo .line {
   transition: all 0.5s ease-in-out;
@@ -171,7 +197,7 @@
   background: $success;
   color: #fff;
   height: 100%;
-  width: 100%;
+  width: 100.5%;
   content: "New ToDo";
   position: absolute;
   margin: auto;

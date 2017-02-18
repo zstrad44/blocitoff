@@ -1,7 +1,19 @@
 <div class="card itemCard" id="<%= item.id %>">
   <div class="card-block">
+      
+        <div class="btn-group dropup pull-right">
+          <button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-cog"></i></button>
+          <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div class="dropdown-menu dropdown-menu-right">
+            <button class="dropdown-item" type="button">Edit Task</button>
+            <button class="dropdown-item" type="button">Reset Task</button>
+          </div>
+        </div>
+      
     <h4 class="card-title"><%= item.name %></h4>
-    <h6 class="card-subtitle mb-2 text-muted">Created: <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago </h6>
+    <h6 class="card-subtitle mb-2 text-muted t-lg t-right"  data-tooltip="Created: <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago"><i class="fa fa-clock-o"></i> </h6>
     <% if distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') >= "3" %>
         <h6>This Task will expire in: <span class="badge badge-pill badge-primary"> <%= days_left(item) %></span></h6>
     <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') == "2" %>

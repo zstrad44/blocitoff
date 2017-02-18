@@ -2,11 +2,11 @@
   <div class="row mb-5">
     <div class="col-lg-12 wrapper">
       <%= render partial: "sidebar" %>
-    <div class="col-sm-9 offset-lg-2 col-md-10 offset-md-1 main-content">
+    <div class="col-sm-10 offset-lg-1 col-md-10 offset-md-1 main-content">
       <div class="row mainRow">
         <div class="col-sm-12">
           <div class="row">
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-8 col-sm-12">
               <h3 class="text-primary">What's on the list:</h3>
               <% if current_user.items_expiring_today.count == 0 %>
                 <h4 class="text-success">Items set to expire today: <%= current_user.items_expiring_today.count %></h4>

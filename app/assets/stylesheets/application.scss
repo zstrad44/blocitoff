@@ -32,7 +32,7 @@
  $gray-lighter:      #f1f1f1 !default;
  $gray-lightest:     #fafafa !default;
 
- $primary:         #4285F4 !default;
+ $primary:         #428bca !default;
  $primary-dark:         #0d47a1 !default;
  $success-light:         #00C851 !default;
  $success:         #5cb85c !default;
@@ -44,12 +44,18 @@
  $danger:          #ff4444 !default;
  $danger-dark:          #CC0000 !default;
 
+
+
 html, body {
   font-family: 'Lato', sans-serif;
   background: #ededed;
 }
+.viewBox {
+  margin-top:64px;
+}
 .navbar {
   background-color: #ddd;
+  box-shadow: 0 8px 15px -10px #2C3E50;
 }
 a.navbar-brand {
   font-size: 1.5em;
@@ -100,6 +106,10 @@ background-color: $gray;
 .navbar-toggle .icon-bar {
   background-color: #fff;
 }
+.navbar .gravatar {
+  height:48px;
+  width:auto;
+}
 
 .btn {
   transition: .25s ease-in;
@@ -141,4 +151,192 @@ background-color: $gray;
     position: fixed; /* keeps it on the bottom once in view */
     bottom: 18px; /* height of link element */
     left: 10px; /* padding from the left side of the window */
+}
+
+//Preset Shadow styles
+$w: 15px; // shadow size
+$color: #2C3E50;
+$box_w: 4 * 40px;
+$box_h: 3 * 40px;
+$box-color: #16A085;
+$label-color: #fff;
+$bgcolor: #1ABC9C;
+$text-color: #fff;
+small {
+  color: #fff !important;
+}
+//--------------------------------------------------------------------
+// Shadow Specs
+//--------------------------------------------------------------------
+
+/*  CSS Spec:  | style | offset-x | offset-y | blur-radius | spread-radius | color */
+$shadows: (               
+	top          :            0          (-$w)       $w            (-$w)       $color,
+  right        :            $w         0           $w            (-$w)       $color,
+  bottom       :            0          $w          $w            (-$w)       $color,
+  left         :            (-$w)      0           $w            (-$w)       $color,
+  all          :            0          0           $w                        $color,
+  inset-top    : inset      0          $w          $w            (-$w)       $color,
+  inset-right  : inset      (-$w)      0           $w            (-$w)       $color,
+  inset-bottom : inset      0          (-$w)       $w            (-$w)       $color,
+  inset-left   : inset      $w         0           $w            (-$w)       $color,
+  inset-all    : inset      0          0           $w                        $color,
+
+  left-right       : (       (-$w) 0     $w (-$w) $color,       $w    0     $w (-$w) $color),
+  top-bottom       : (       0     (-$w) $w (-$w) $color,       0     $w    $w (-$w) $color),
+  inset-left-right : (inset  $w    0     $w (-$w) $color, inset (-$w) 0     $w (-$w) $color),
+  inset-top-bottom : (inset  0     $w    $w (-$w) $color, inset 0     (-$w) $w (-$w) $color),
+);
+
+@each $k, $v in $shadows {
+  .#{$k} {box-shadow:$v;}
+}
+
+// TOOLTIP CSS STYLES
+// Classes to add to element:
+// Tooltip width: t-xs: 80px || t-md: 140px || t-lg: 170px || t-xl: 200px
+// Tooltip position: t-top: top || t-rigt: right || t-bottom: bottom || t-left: 200px
+// Place text you wish to display in "data-tooltip" attribute.
+
+// Example: <button class="t-top t-xl btn btn-success" data-tooltip="Top Tooltip">Extra Large sized tooltip. Position on top of this Element.</button>
+
+// Example: <button class="t-left t-md btn btn-success" data-tooltip="Left Tooltip">Medium sized tooltip. Position to the left of this Element.</button>
+
+//STYLES 
+
+[data-tooltip] {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  /********** Tooltip Sizes **********/
+  /********** Top Tooltip **********/
+  /********** Right Tooltip **********/
+  /********** Bottom Tooltip **********/
+  /********** Left Tooltip **********/
+}
+[data-tooltip]:before,
+[data-tooltip]:after {
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.15s cubic-bezier(0.5, 1, 0.25, 1);
+  z-index: 1;
+}
+[data-tooltip]:before {
+  padding: 5px;
+  width: auto;
+  border-radius: 3px;
+  background: #606060;
+  color: #fff;
+  content: attr(data-tooltip);
+  text-align: center;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.2;
+}
+[data-tooltip]:after {
+  border: 8px solid transparent;
+  width: 0;
+  content: "";
+  font-size: 0;
+  line-height: 0;
+}
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+  visibility: visible;
+  opacity: 1;
+}
+[data-tooltip].t-xl:before {
+  width: 200px;
+  white-space:normal;
+  height:auto;
+}
+[data-tooltip].t-lg:before {
+  width: 170px;
+  white-space:normal;
+  height:auto;
+}
+[data-tooltip].t-md:before {
+  width: 140px;
+  white-space:normal;
+  height:auto;
+}
+[data-tooltip].t-sm:before {
+  width: 110px;
+  white-space:normal;
+  height:auto;
+}
+[data-tooltip].t-xs:before {
+  width: 80px;
+  white-space:normal;
+  height:auto;
+}
+[data-tooltip].t-top:before {
+  bottom: 100%;
+  left: 50%;
+  margin-bottom: 5px;
+  transform: translateX(-50%);
+}
+[data-tooltip].t-top:after {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: 8px solid #606060;
+  border-bottom: none;
+}
+[data-tooltip].t-top:hover:before,
+[data-tooltip].t-top:hover:after {
+  transform: translateX(-50%) translateY(-5px);
+}
+[data-tooltip].t-right:before {
+  top: 50%;
+  left: 100%;
+  margin-left: 5px;
+  transform: translateY(-50%);
+}
+[data-tooltip].t-right:after {
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-right: 8px solid #606060;
+  border-left: none;
+}
+[data-tooltip].t-right:hover:before,
+[data-tooltip].t-right:hover:after {
+  transform: translateX(5px) translateY(-50%);
+}
+[data-tooltip].t-bottom:before {
+  top: 100%;
+  left: 50%;
+  margin-top: 5px;
+  transform: translateX(-50%);
+}
+[data-tooltip].t-bottom:after {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-bottom: 8px solid #606060;
+  border-top: none;
+}
+[data-tooltip].t-bottom:hover:before,
+[data-tooltip].t-bottom:hover:after {
+  transform: translateX(-50%) translateY(5px);
+}
+[data-tooltip].t-left:before {
+  top: 50%;
+  right: 100%;
+  margin-right: 5px;
+  transform: translateY(-50%);
+}
+[data-tooltip].t-left:after {
+  top: 50%;
+  right: 100%;
+  transform: translateY(-50%);
+  border-left: 8px solid #606060;
+  border-right: none;
+}
+[data-tooltip].t-left:hover:before,
+[data-tooltip].t-left:hover:after {
+  transform: translateX(-5px) translateY(-50%);
 }

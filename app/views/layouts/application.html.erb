@@ -1,69 +1,76 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TaskBloc</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Catamaran','application.css' %>
-</head>
-<body>
-  <nav class="navbar navbar-toggleable-md navbar-light bg-faded mb-4">
-  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-   <%= link_to root_path, :class => "navbar-brand strong" do %>
-     <%= content_tag('icon', '', class: 'fa fa-tasks text-primary')  %>
-            TaskBloc
-   <% end %>
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link text-success" href="#" data-toggle="modal" data-target="#addItemModal"><i class="fa fa-plus" aria-hidden="true"></i> New</a>
-      </li> 
-    </ul>
-    <ul class="nav navbar-nav">
-             <% if user_signed_in? %>
-             
-              <li class="nav-item">
-                  <%= link_to  edit_user_registration_path, class: "navbar-link" do %>
-                     <div  class="pull-right user-info">
-                       <%= image_tag current_user.avatar_url(48), class: "gravatar" %>
-                     </div>
-                  <% end %>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">
-                        <i class="fa fa-bars" aria-hidden="true"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addItemModal"><i class="fa fa-plus" aria-hidden="true"></i> New ToDo</a>
-                    <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
-                    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'dropdown-item'  %>
-                </div>
-              </li>
-            <% else %>
-              <li class="nav-item">
-                <%= link_to 'Sign Up'.html_safe, new_user_registration_path, class: "nav-link btn signUpBtn btn-outline-success" %>
-              </li class="nav-item">
-              <li class="nav-item"><%= link_to 'Sign In'.html_safe, new_user_session_path, class: "nav-link btn signInBtn"  %></li>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>TaskBloc | Auto-Expiring ToDo List</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Catamaran','application.css' %>
+  </head>
+  <body>
+    <nav class="navbar navbar-toggleable-md fixed-top navbar-light bg-faded mb-4">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <%= link_to root_path, :class => "navbar-brand strong" do %>
+      <%= content_tag('icon', '', class: 'fa fa-tasks text-primary')  %>
+        TaskBloc
+      <% end %>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link text-success" href="#" data-toggle="modal" data-target="#addItemModal"><i class="fa fa-plus" aria-hidden="true"></i> New</a>
+        </li> 
+      </ul>
+      <ul class="nav navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item hidden-sm-down">
+            <%= link_to  edit_user_registration_path, class: "navbar-link" do %>
+              <div  class="pull-right user-info">
+                <%= image_tag current_user.avatar_url(180), class: "gravatar" %>
+              </div>
             <% end %>
-    </ul>
-  </div>
-</nav>
-    <% flash.each do |key, value| %>
-   <div class="container">
-    <div class="alert alert-<%= key %> alert-dismissable">
-      <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-      <strong id="notice"><%= value %></strong>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" id="navbarDropdownMenuLink">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addItemModal"><i class="fa fa-plus" aria-hidden="true"></i> New ToDo</a>
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'dropdown-item' %>
+              <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'dropdown-item'  %>
+            </div>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to 'Sign Up'.html_safe, new_user_registration_path, class: "nav-link btn signUpBtn btn-outline-success" %>
+          </li class="nav-item">
+          <li class="nav-item"><%= link_to 'Sign In'.html_safe, new_user_session_path, class: "nav-link btn signInBtn"  %></li>
+        <% end %>
+      </ul>
     </div>
-   </div>
-  <% end %>
-
-  <div class="viewBox">
-      <%= yield %>
-  </div>
-
-</body>
+  </nav>
+    <% flash.each do |key, value| %>
+      <div class="container">
+        <div class="alert alert-<%= key %> alert-dismissable">
+          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+          <strong id="notice"><%= value %></strong>
+        </div>
+        <script>
+        setTimeout("$('.alert').fadeOut('slow')", 5000)
+        </script>
+      </div>
+    <% end %>
+    <div class="viewBox">
+        <%= yield %>
+    </div>
+    
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    });
+    </script>
+    
+  </body>
 </html>
