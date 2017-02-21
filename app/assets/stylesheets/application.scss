@@ -44,14 +44,12 @@
  $danger:          #ff4444 !default;
  $danger-dark:          #CC0000 !default;
 
-
-
 html, body {
   font-family: 'Lato', sans-serif;
   background: #ededed;
 }
 .viewBox {
-  margin-top:64px;
+  margin-top:74px;
 }
 .navbar {
   background-color: #ddd;
@@ -92,6 +90,12 @@ a.navbar-brand {
 }
 h1,h2,h3,h4,h5 {
   margin-top: 10px;
+}
+.btn {
+  border-radius:0;
+}
+.form-control {
+  border-radius:0 !important;
 }
 .navbar-toggle {
 background-color: $gray;
@@ -137,9 +141,6 @@ background-color: $gray;
   border-color: #eed3d7;
   color: #b94a48;
 }
-
- 
-
 
 // Back to top button styles
 #top-link-block.affix-top {

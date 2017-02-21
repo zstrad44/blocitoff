@@ -1,7 +1,12 @@
 class ItemsController < ApplicationController
-  
+  include ItemsHelper
+  def new
+    @item = Item.new
+  end
+
   def create
     @item = Item.new
+    @user = current_user.items
     @item.name = params[:item][:name]
     @item.user_id = current_user.id
     @item.user = current_user
@@ -16,10 +21,21 @@ class ItemsController < ApplicationController
    
   end
   
+  def edit 
+
+    @item = Item.find(params[:id])
+    @user = current_user
+  end
+  
   def update
     @item = Item.find(params[:id])
-
+      if @item.reset_item
+        @item.created_at = Time.now
+      end
+      
+    
     if @item.update(item_params)
+      change_days(@item)
       redirect_to root_path
       flash[:notice] = "Nice! You just updated your ToDo!"
     else
@@ -40,11 +56,13 @@ class ItemsController < ApplicationController
       redirect_to root_path
     end
   end
+
+
   
   private
-    
+  
     def item_params
-      params.require(:item).permit(:name , :created_at)
+      params.require(:item).permit(:name , :created_at, :updated_at, :reset_item, :days_to_expire)
     end
   
 end

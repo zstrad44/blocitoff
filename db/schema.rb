@@ -11,13 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212050203) do
+ActiveRecord::Schema.define(version: 20170220233156) do
 
   create_table "items", force: :cascade do |t|
     t.string   "name"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "reset_item",     default: false
+    t.datetime "expire_at"
+    t.boolean  "do_expire",      default: true
+    t.integer  "days_to_expire"
+    t.boolean  "set_priority"
   end
 
   add_index "items", ["user_id"], name: "index_items_on_user_id"

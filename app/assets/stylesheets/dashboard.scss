@@ -139,15 +139,24 @@
     margin-bottom: 12px;
     border-radius:0 !important;
     border: 1px solid #dbd8d8;
-    border-width: 1px 1px 1px 1px;
+    // border-width: 1px 1px 1px 1px;
     // box-shadow: 0 2px 5px #ebebeb;
-    box-shadow: inset 0 0 5px #bcbcbc;
+    // box-shadow: inset 0 0 5px #dcdcdc;
+    box-shadow: 0 1px 0 #e7e7e7;
     padding:10px;
-    
  }
  .box h3 {
      color: #808080;
+     margin-top:0;
  }
+ .box .boxHeading {
+     font-size: 1.6em;
+     
+ }
+ .box.sideBox h4 {
+     font-size: 1em;
+ }
+ 
  .dateTitle {
      font-size: .6em;
      color: $primary;
@@ -170,7 +179,7 @@
   text-align: center;
   font-size: 1.5em;
   text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.25);
-  box-shadow: inset 0 0 5px #bcbcbc;
+//   box-shadow: inset 0 0 5px #bcbcbc;
   border-radius:0 !important;
   margin-top:15px;
 }

@@ -1,65 +1,128 @@
-
-<div class="container">
-  <div class="row">
-    <div class="col-lg-6 offset-lg-3 col-md-12 col-sm-12">
-      <div class="card">
-        <div class="card-header"><h2>Edit Profile - <%= @user.email %></h2></div>
-        <div class="card-block">
-          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-            <%= devise_error_messages! %>
-
-            <div class="field form-group">
-              <%= f.label :username %><br />
-              <%= f.text_field :username, autofocus: true, class: "form-control" %>
+<div class="container-fluid dashboard">
+  <div class="row mb-5">
+    <div class="col-lg-12 wrapper">
+      <%= render partial: "users/sidebar", object: @user %>
+    <div class="col-sm-10 offset-lg-1 col-lg-11 col-md-10 offset-md-1 main-content">
+      <div class="row mainRow">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <h3 class="text-primary"><i class="fa fa-user"></i>&nbsp; My Account | <%= @user.username.downcase %></h3>
+            </div>
+          </div>
+          
+          <div class="row itemsRow">
+            <div class="col-lg-9 col-md-12 col-sm-12">
+              <div class="box p-3">
+                <h3 class="boxHeading"><i class="fa fa-pencil"></i>&nbsp;Edit Details:</h3>
+                <hr>
+                 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= devise_error_messages! %>
+      
+                <div class="row form-row">
+                  <div class="col-lg-6 col-sm-12 ">
+                    <div class="field form-group">
+                      <%= f.label :username %><br />
+                      <%= f.text_field :username, autofocus: true, class: "form-control" %>
+                    </div>
+                  </div>
+                    
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="field form-group">
+                      <%= f.label :email %><br />
+                      <%= f.email_field :email, autofocus: true, class: "form-control" %>
+                    </div> 
+                  </div>
+                  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+                  <% end %>
+      
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="field form-group">
+                      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+                      <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Enter your new password.." %>
+                      <% if @minimum_password_length %>
+                        <em><%= @minimum_password_length %> characters minimum</em>
+                      <% end %>
+                    </div>
+                  </div>
+      
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="field form-group">
+                      <%= f.label :password_confirmation %><br />
+                      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Please re-enter your new password.." %>
+                    </div>
+                    <br>
+                  </div>
+            
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="field form-group">
+                     <br />
+                      <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Please enter your current password to confirm changes.." %>
+                    </div>
+                  </div>
+                  
+                  <div class="col-lg-6 col-sm-12">
+                    <div class="actions">
+                      <br />
+                      <%= f.submit "Update Account", class: "btn btn-success btn-block" %>
+                    </div>
+                  </div>
+                </div><%# form-row %>
+                <% end %>
+                <br>
+              </div> 
             </div>
             
-            <div class="field form-group">
-              <%= f.label :name %><br />
-              <%= f.text_field :name, autofocus: true, class: "form-control" %>
-            </div>
-            
-            <div class="field form-group">
-              <%= f.label :email %><br />
-              <%= f.email_field :email, autofocus: true, class: "form-control" %>
-            </div>
-
-            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-              <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-            <% end %>
-
-            <div class="field form-group">
-              <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-              <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-              <% if @minimum_password_length %>
-                <br />
-                <em><%= @minimum_password_length %> characters minimum</em>
-              <% end %>
-            </div>
-
-            <div class="field form-group">
-              <%= f.label :password_confirmation %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+            <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="box sideBox">
+                <h3 class="boxHeading"><i class="fa fa-list"></i>&nbsp; Summary:</h3>
+                <hr>
+                  <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <h4>My Username:&nbsp; <strong><%= current_user.username%></strong></h4>
+                    <h4>My Email Adress:&nbsp; <strong><%= current_user.email%></strong></h4>
+                    <h4>User Since:&nbsp; <strong><%= current_user.created_at.strftime("%Y") %></strong></h4>
+                    <h4>Last login:&nbsp; <strong><%= current_user.last_sign_in_at.strftime(" %a %b %d, %Y") %></strong></h4>
+                    <h4>Current Tasks:&nbsp; <strong><%= current_user.items.count%></strong></h4>
+                    <br>                    
+                  </div>
+                  <div class="text-right">
+                    <a class="text-danger" data-toggle="collapse" href="#collapseCancel" aria-expanded="false" aria-controls="collapseCancel">Cancel my account</a>
+                    <div class="collapse" id="collapseCancel">
+                      <div class="card card-block text-center">
+                        <p>Inexplicably Unhappy?</p>
+                        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure? There's no coming back from this.." }, method: :delete, class: "btn btn-danger btn-block" %>
+                      </div>
+                    </div>
+                  </div>
+              
+                
+              </div>
             </div>
 
-            <div class="field form-group">
-              <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-              <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="box lowerBox text-right">
+                <%= link_to "Back", :back, class: "btn btn-lg btn-warning" %> 
+              </div>
             </div>
-
-            <div class="actions">
-              <%= f.submit "Update", class: "btn btn-success" %>
-            </div>
-          <% end %>
-          <br>
-          <h3>Cancel my account</h3>
-
-          <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure? There's no coming back from this.." }, method: :delete, class: "btn btn-danger" %></p>
-        </div>
-        <div class="card-footer" style="text-align:center;">
-
-            <!-- <%= render "devise/shared/links" %> -->
-
-            <%= link_to "Back", :back, class: "btn btn-lg btn-warning" %>
+          </div><%# row %>
+          
+        </div>  
+      </div>    
+    </div><%# main-content %>
+    </div><%# wrapper %>
+  </div> <%# row %>
+</div> <%# containter-fluid%>
+  
+<div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render partial: 'items/form', locals: {item: Item.new, user: @user} %>
+      </div>
+      <div class="modal-footer clearfix">
+        <div class="clearfix" style="float:left;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
         </div>
       </div>
     </div>

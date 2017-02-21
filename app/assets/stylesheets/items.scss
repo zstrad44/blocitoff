@@ -1,19 +1,76 @@
+ $screen-lg: 1200px;
+ $screen-md: 992px;
+ $screen-sm: 768px;
+ $screen-xs: 480px;
+
+ $gray-darkest:      #222 !default;
+ $gray-darker:       #333 !default;
+ $gray-dark:         #555 !default;
+ $gray-base:         #777 !default;
+ $gray:              #ddd !default;
+ $gray-light:        #eee !default;
+ $gray-lighter:      #f1f1f1 !default;
+ $gray-lightest:     #fafafa !default;
+
+ $primary:         #428bca !default;
+ $primary-dark:         #0d47a1 !default;
+ $success-light:         #00C851 !default;
+ $success:         #5cb85c !default;
+ $success-dark:         #449d44 !default;
+ $info:            #33b5e5 !default;
+ $info-dark:            #0099CC !default;
+ $warning:         #ffbb33 !default;
+ $warning-dark:         #FF8800 !default;
+ $danger:          #ff4444 !default;
+ $danger-dark:          #CC0000 !default;
 
 .itemCard {
     padding: 5px 10px;
     margin-bottom: 5px;
-    background-color:#efefef !important;
+    background-color:#fcfcfc !important;
     border-radius:0 !important;
 }
 
 .itemCard .card-block {
     padding: 0;
 }
-.itemCard .card-block .card-title {
-    font-size: 1.2em;
-    text-shadow: 0px 1px 3px rgba(0, 0, 0, 0.4);
+.itemCard .card-block .badge-pill{
+        border-radius: 0 !important;
+}
+.itemCard .card-block .editIcon{
+    position: absolute;
+    right: 3px;
+    top: 3px;
+    opacity: .5;
+    padding: 3px 5px;
+    border-radius: 3px;
 }
 
+.itemCard-footer {
+    margin: 0 0px -10px 0px;
+}
+.itemCard .card-block .editIcon:hover{
+    background-color: $warning;
+    opacity: .8;
+}
+.itemCard .card-block .card-title {
+    font-size: 1.2em;
+    margin-top: 2px !important;
+    margin-bottom: 15px;
+    text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+}
+.itemCard .card-block .card-title .cardIcon {
+    font-size: .8em;
+    color: $primary !important;
+    text-shadow: none;
+    opacity: .5;
+}
+.itemCard .card-block .card-title .cardIcon:hover {
+    font-size: .8em;
+    color: $primary !important;
+    text-shadow: none;
+    opacity: 1;
+}
 .itemCard .card-block .card-subtitle {
     font-size: .8em;
 } 
@@ -27,8 +84,8 @@
 .itemCard .card-block  a.btn{
     position: absolute;
     right: 5px;
-    top: 55px;
-    padding: 5px 10px;
+    bottom: 5px;
+    padding: 3px 10px;
     background-color: #ddd;
     border-color: #dadada;
 }

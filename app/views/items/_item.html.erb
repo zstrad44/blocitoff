@@ -1,31 +1,31 @@
 <div class="card itemCard" id="<%= item.id %>">
   <div class="card-block">
-      
-        <div class="btn-group dropup pull-right">
-          <button type="button" class="btn btn-sm btn-secondary"><i class="fa fa-cog"></i></button>
-          <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <button class="dropdown-item" type="button">Edit Task</button>
-            <button class="dropdown-item" type="button">Reset Task</button>
-          </div>
-        </div>
-      
-    <h4 class="card-title"><%= item.name %></h4>
-    <h6 class="card-subtitle mb-2 text-muted t-lg t-right"  data-tooltip="Created: <%= distance_of_time_in_words(item.created_at, Time.now, include_seconds: true) %> ago"><i class="fa fa-clock-o"></i> </h6>
-    <% if distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') >= "3" %>
-        <h6>This Task will expire in: <span class="badge badge-pill badge-primary"> <%= days_left(item) %></span></h6>
-    <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') == "2" %>
-        <h6>This Task will expire in: <span class="badge badge-pill badge-warning"> <%= days_left(item) %></span></h6>
-    <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' day', '') == "1" %>
-        <h6>This Task will expire in: <span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>
-    <% else %>
-        <h6>This Task will expire in: <span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>    
-    <%end%>
     
-     <%= link_to "", [current_user, item], method: :delete, class: 'btn btn-primary fa fa-check', data: {confirm: 'Are you sure you want to mark this ToDo as COMPLETE?'}, remote: :true %>
-     <%#= link_to "", [current_user, item], method: :edit, class: 'btn btn-primary fa pencil', remote: :true %>
+    <%= link_to edit_user_item_path(:user_id => current_user.id, :id => item.id)  do %>
+         <h6 class="cardIcon mb-2 text-muted t-md t-left editIcon"  data-tooltip="Click to Edit Task"><i class="fa fa-cog"></i></h6>
+    <%end%>
+   
+    
+    <h4 class="card-title"><span class="cardIcon text-muted t-lg t-right"  data-tooltip="Created: <%= created_inwords(item) %> ago"><i class="fa fa-clock-o"></i></span> <%= item.name %></h4>
+    <div class="itemCard-footer">
+        <% if distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') >= "3" %>
+            <h6 class="t-lg t-right text-muted" data-tooltip="Task will auto expire on: <%= date_to_expire(item) %>"><span class="badge badge-pill badge-primary"> <%= days_left(item) %></span></h6>
+        <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' days', '') == "2" %>
+            <h6 class="t-lg t-right text-muted" data-tooltip="Task will auto expire on: <%= date_to_expire(item) %>"><span class="badge badge-pill badge-warning"> <%= days_left(item) %></span></h6>
+        <% elsif distance_of_time_in_words(item.created_at + 7.days, Time.now).gsub(' day', '') == "1" %>
+            <h6 class="t-lg t-right text-muted" data-tooltip="Task will auto expire on: <%= date_to_expire(item) %>"><span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>
+        <% else %>
+            <h6 class="t-lg t-right text-muted" data-tooltip="Task will auto expire on: <%= date_to_expire(item) %>"><span class="badge badge-pill badge-danger"> <%= days_left(item) %></span></h6>    
+        <%end%>
+        <%= link_to "", [current_user, item], method: :delete, class: 'btn btn-primary fa fa-check', data: {confirm: 'Are you sure you want to mark this ToDo as COMPLETE?'}, remote: :true %>
+    </div>
+     
   </div>
 </div>
   
+  
+  
+  
+  
+  
+        

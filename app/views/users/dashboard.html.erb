@@ -28,7 +28,7 @@
           <div class="row itemsRow">
             <div class="col-lg-4 col-md-4 col-sm-12 todayBox">
               <div class="box">
-                <h3 class="mb-3">Today <span class="dateTitle"><%= Time.now.strftime("%a %x") %></span></h3>
+                <h3 class="mb-3 t-xl t-bottom" data-tooltip="These Tasks will expire today!">Today <span class="dateTitle"><%= Time.now.strftime("%a %x") %></span></h3>
                 <% current_user.items_expiring_today.each do |item| %>
                   <%= render partial: "items/item", locals: { item: item } %>
                 <% end %>
@@ -37,7 +37,7 @@
             
             <div class="col-lg-4 col-md-4 col-sm-12 tomorrowBox">
               <div class="box">
-                <h3 class="mb-3">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
+                <h3 class="mb-3 t-xl t-bottom" data-tooltip="These Tasks will expire tomorrow!">Tomorrow <span class="dateTitle"><%= Date.tomorrow.strftime("%a %x") %></span></h3>
                 <% current_user.items_expiring_tomorrow.each do |item| %>
                   <%= render partial: "items/item", locals: { item: item } %>
                 <% end %>
@@ -46,7 +46,7 @@
 
             <div class="col-lg-4 col-md-4 col-sm-12 upcomingBox">
               <div class="box">
-                <h3 class="mb-3">Upcoming </h3>
+                <h3 class="mb-3 t-xl t-bottom" data-tooltip="These Tasks have atleast 3 days before they expire!">Upcoming </h3>
                 <% current_user.items_upcoming.each do |item| %>
                   <%= render partial: "items/item", locals: { item: item } %>
                 <% end %>
@@ -65,7 +65,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <%= render partial: 'items/form' %>
+        <%= render partial: 'items/form', locals: {user: @user, item: @item_new } %>
       </div>
       <div class="modal-footer clearfix">
         <div class="clearfix" style="float:left;">
@@ -80,7 +80,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-body">
-        <%#= render partial: 'items/edit_form' %>
+        <%#= render partial: 'items/edit_form', locals: {user: @user, item: @item_edit } %>
       </div>
       <div class="modal-footer clearfix">
         <div class="clearfix" style="float:left;">

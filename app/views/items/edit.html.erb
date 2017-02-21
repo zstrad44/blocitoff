@@ -1,0 +1,89 @@
+<div class="container-fluid dashboard">
+  <div class="row mb-5">
+    <div class="col-lg-12 wrapper">
+      <%= render partial: "users/sidebar", object: @user %>
+    <div class="col-sm-10 offset-lg-1 col-lg-11 col-md-10 offset-md-1 main-content">
+      <div class="row mainRow">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-lg-8 col-sm-12">
+              <h3 class="text-primary"><i class="fa fa-user"></i>&nbsp; My Tasks | <%= @user.username.downcase %></h3>
+            </div>
+          </div>
+          
+          <div class="row itemsRow">
+            <div class="col-lg-9 col-md-12 col-sm-12">
+              <div class="box p-3">
+                <h3 class="boxHeading"><i class="fa fa-pencil"></i>&nbsp;Edit Task:</h3>
+                <hr>
+                 <%= form_for [@user, @item] do |f| %>
+                  <div class="row form-row">
+                   <div class="col-lg-12 col-sm-12 ">
+                       <div class="field form-group">
+                        <%= f.label :name,"Task:", class: "control-label" %><br>
+                        <%= f.text_field :name, class: "form-control", placeholder: "What do you need to do?" %>
+                      </div>
+                   </div>
+                   <div class="col-lg-6 col-sm-12 ">
+                     <div class="field form-group">
+                      <%= f.label :days_to_expire, "Optional - Change when your task expires:", class: "control-label" %><br>
+                      <%= f.select :days_to_expire, options_for_select([['1 Day', 1],['2 Days', 2],['3 Days', 3],['4 Days', 4],['5 Days', 5],['6 Days', 6],['7 Days - Default', 7],['Days to complete task', 8]], :selected => '8'), {}, { :class => 'form-control' } %>
+                    </div>   
+                   </div>
+                   <div class="col-lg-6 col-sm-12 mt-2">
+                     <div class="text-right">
+                       <%= f.submit "Update Task", class:"btn btn-success btn-block mt-4" %>
+                     </div>
+                   </div>
+                  </div>
+                <% end %>
+              </div>  
+            </div>
+            
+            <div class="col-lg-3 col-md-12 col-sm-12">
+              <div class="box sideBox">
+                <h3 class="boxHeading"><i class="fa fa-list"></i>&nbsp; Summary:</h3>
+                <hr>
+                  <div class="col-lg-12 col-sm-12 col-xs-12">
+                    <% if @item.created_at == @item.updated_at %>
+                      <h4>Task Created:&nbsp; <strong><%= @item.created_at.strftime(" %a %b %d, %Y") %></strong></h4>
+                    <% else %>
+                      <h4>Task Created:&nbsp; <strong><%= @item.created_at.strftime(" %a %b %d, %Y") %></strong></h4>
+                      <h4>Task Last Updated:&nbsp; <strong><%=  @item.updated_at.strftime(" %a %b %d, %Y") %></strong></h4>
+                    <% end %>
+                    <h4>Task Expires in:&nbsp; <strong><%= days_left(@item) %></strong></h4>
+                    <br>                    
+                  </div>
+              
+              </div>
+            </div>
+
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="box lowerBox text-right">
+                <%= link_to "Back", :back, class: "btn btn-lg btn-warning" %> 
+                <%= link_to '<i class="fa fa-check" aria-hidden="true"></i> Mark As Complete'.html_safe, [@user, @item], method: :delete, data: { confirm: 'Are you sure? This action is permanent.' }, class: "btn btn-primary btn-lg" %>
+              </div>
+            </div>
+          </div><%# row %>
+          
+        </div>  
+      </div>    
+    </div><%# main-content %>
+    </div><%# wrapper %>
+  </div> <%# row %>
+</div> <%# containter-fluid%>
+  
+<div class="modal fade" id="addItemModal" tabindex="-1" role="dialog" aria-labelledby="addItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <%= render partial: 'items/form', locals: {item: Item.new, user: @user} %>
+      </div>
+      <div class="modal-footer clearfix">
+        <div class="clearfix" style="float:left;">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

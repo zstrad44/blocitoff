@@ -4,8 +4,7 @@ module ApplicationHelper
       Time.zone = 'MST'
       the_time = Time.zone.now
       today = Date.today.to_time
-      
-    
+
       morning = today.beginning_of_day
       noon = today.noon
       evening = today.change( hour: 17 )
@@ -35,6 +34,14 @@ module ApplicationHelper
       return distance_of_time_in_words(item.created_at + 7.days, Time.now)
     end
     
+    def date_to_expire(item)
+      
+      return (item.created_at + 7.days).strftime("%a %x")
+    end
+    
+    def created_inwords(item)
+       return distance_of_time_in_words(item.created_at, Time.now, include_seconds: true)
+    end
 end
 
 
