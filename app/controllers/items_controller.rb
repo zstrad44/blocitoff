@@ -18,11 +18,9 @@ class ItemsController < ApplicationController
       flash[:alert] = "Bummer, something went wrong! Try again.. eh?"
       redirect_to root_path
     end
-   
   end
   
   def edit 
-
     @item = Item.find(params[:id])
     @user = current_user
   end
@@ -32,8 +30,7 @@ class ItemsController < ApplicationController
       if @item.reset_item
         @item.created_at = Time.now
       end
-      
-    
+
     if @item.update(item_params)
       change_days(@item)
       redirect_to root_path
@@ -57,8 +54,6 @@ class ItemsController < ApplicationController
     end
   end
 
-
-  
   private
   
     def item_params

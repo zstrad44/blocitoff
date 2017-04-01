@@ -1,9 +1,11 @@
 <div class="col-sm-2 col-md-1  sidebar hidden-sm-down">
     <div class="sidebar-heading clearfix">
-        <div class="profile-image">
-            <%= image_tag current_user.avatar_url(180), class: "gravatar" %>
-        </div>
-    </div>
+        <%= link_to  edit_user_registration_path do%>
+            <div class="profile-image">
+                <%= image_tag current_user.avatar_url(180), class: "gravatar" %>
+            </div>
+        <%end%>
+    </div> 
     <div class="sidebar-nav">
         <div class="list-group top-links">
             <%= link_to root_path, :class => 'list-group-item' do %>
@@ -17,9 +19,7 @@
                <%= link_to edit_user_registration_path, :class => 'list-group-item' do %>
                   <i class="fa fa-user fa-fw" aria-hidden="true"></i><br><span> Account</span>
                <% end %>
-               <%= link_to root_path, :class => 'list-group-item' do %>
-                  <i class="fa fa-life-ring fa-fw" aria-hidden="true"></i><span> Help</span>
-               <% end %>
+               <a href="#" class="list-group-item list-group-item-action" data-toggle="modal" data-target=".help-modal"><i class="fa fa-life-ring fa-fw" aria-hidden="true"></i><span> Help</span></a>
                <%= link_to destroy_user_session_path, method: :delete, :class => 'list-group-item' do %>
                   <i class="fa fa-sign-out fa-fw" aria-hidden="true"></i><span> Sign Out</span>
                <% end %>
@@ -27,3 +27,5 @@
         </div>
     </div>
 </div>
+
+<%= render partial: "users/help_modal" %>
